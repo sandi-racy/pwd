@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      .navigasi {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f5f7fa;
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+
+      .navigasi a {
+        text-decoration: none;
+        color: #3b5998;
+        font-size: 12px;
+      }
+
+      .menu {
+        display: flex;
+        list-style: none;
+      }
+
+      .menu a {
+        margin-left: 14px;
+      }
+
+      .navigasi2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logotokped {
+        height: 30px;
+      }
+
+      .search-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .searchbar {
+        width: 96%;
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .menu-kanan {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+      }
+
+      .cart {
+        height: 24px;
+        cursor: pointer;
+        margin-right: 2px;
+      }
+
+      #cart-total {
+        display: none;
+        background-color: green;
+        border-radius: 2px;
+        text-align: center;
+        color: white;
+        font-size: 12px;
+        height: 15px;
+        left: 15px;
+        position: absolute;
+        top: 2px;
+        width: 15px;
+      }
+
+      #total-belanja {
+        display: none;
+        border-radius: 5px;
+        border: 1px solid;
+        position: absolute;
+        top: 40px;
+        left: -85px;
+        height: 100px;
+        width: 200px;
+      }
+
+      .btn {
+        padding: 5px 12px;
+        border: 1px solid #00aa5b;
+        border-radius: 7px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .login {
+        background-color: white;
+        color: #00ab41;
+      }
+
+      .regist {
+        color: white;
+        background-color: #00ab41;
+      }
+
+      .button {
+        padding: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navigasi">
+      <a href="#">Download Tokopedia App</a>
+      <div class="menu">
+        <li><a href="#">Tentang Tokopedia</a></li>
+        <li><a href="#">Mitra Tokopedia</a></li>
+        <li><a href="#">Mulai Berjualan</a></li>
+        <li><a href="#">Promo</a></li>
+        <li><a href="#">Tokopedia Care</a></li>
+      </div>
+    </div>
+
+    <div class="navigasi2">
+      <img
+        class="total-belanja"
+        src="https://images.tokopedia.net/assets-tokopedia-lite/v2/zeus/production/e5b8438b.svg"
+        alt=""
+      />
+      <div class="search-container">
+        <input type="text" class="searchbar" placeholder="Cari di Tokopedia" />
+      </div>
+      <div class="menu-kanan">
+        <img
+          onclick="tampilcart()"
+          id="cart"
+          src="C:\Users\tommy\Downloads\icons8-shopping-cart-24.png"
+          alt=""
+        />
+        <div id="cart-total"></div>
+        <div id="total-belanja">Tidak ada Produk</div>
+        <button class="btn login">Masuk</button>
+        <button class="btn regist">Daftar</button>
+      </div>
+    </div>
+    <button onclick="beli('Telur 1Kg', 32000)">Beli Telur 1Kg</button>
+    <button onclick="beli('Sampo', 3000)">Beli Sampo</button>
+
+
+    <script>
+      let count = 0;
+      let totalHarga = 0;
+      let test = document.getElementById("total-belanja");
+    
+      
+      let daftarBelanja = [];
+    
+      function beli(nama, harga) {
+        count++;
+        totalHarga += harga;
+    
+        
+        daftarBelanja.push({ nama: nama, harga: harga });
+    
+        
+        document.getElementById("cart-total").innerHTML = count;
+        document.getElementById("cart-total").style.display = "block";
+    
+        
+        let isi = "<strong>Daftar Belanja:</strong><br><ul style='padding-left: 18px'>";
+        daftarBelanja.forEach((item) => {
+          isi += `<li>${item.nama} - Rp ${item.harga.toLocaleString()}</li>`;
+        });
+        isi += `</ul><hr><strong>Total: Rp ${totalHarga.toLocaleString()}</strong>`;
+        test.innerHTML = isi;
+      }
+    
+      function tampilcart() {
+        document.getElementById("total-belanja").style.display = "block";
+      }
+    </script>
+    
+    
+  </body>
+</html>
