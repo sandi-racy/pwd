@@ -1,0 +1,362 @@
+<html>
+    <head>
+        <title>Tokopedia</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="menu">
+            <ul>
+                <li>Download Tokopedia App</li>
+                <li>Tentang Tokopedia</li>
+                <li>Mitra Tokopedia</li>
+                <li>Mulai Berjualan</li>
+                <li>Promo</li>
+                <li>Tokopedia Care</li>
+            </ul>
+        </div>
+
+        <div class="container">
+
+            <div class="header">
+                <div class="logo">
+                    <img src="img/logo.jpg" alt="Tokopedia Logo">
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Cari di Tokopedia">
+                </div>
+                <div class="icons">
+                    <img src="img/shopping-cart.png" alt="Cart" />
+                    <div class="cart" id="total"></div>
+                    <button class="btn-outline">Masuk</button>
+                    <button class="btn-green">Daftar</button>
+                </div>
+                
+            </div>
+            <div class="banner">
+                <img src="img/banner.jpg" alt="banner">
+            </div>
+
+            <div class="kategori">
+                <div class="judul-kategori">Kategori Pilihan</div>
+                    <ul class="letak">
+                        <li>
+                            <img src="img/dryfood.png" alt="Makanan Kering">
+                            <div><b>Makanan</b> <span>Kering</span></div>
+                            <button onclick= beli()>Beli</button>
+                        </li>                                 
+                        <li>
+                            <img src="img/figure.png" alt="Figure">
+                            <span>Figure</span>
+                        </li>
+                        <li>
+                            <img src="img/tas.png" alt="Tas Selempang Pria">
+                            <div><b>Tas Selempang</b> <span>Wanita</span></div>
+                        </li>
+                        <li>
+                            <img src="img/flatshoes.png" alt="Flat Shoes Wanita">
+                            <div><b>Flat Shoes</b> <span>Wanita</span></div>
+                        </li>
+                        <li>
+                            <img src="img/dryfood.png" alt="Makanan Kering">
+                            <div><b>Makanan</b> <span>Kering</span></div>
+                        </li>
+                        <li>
+                            <img src="img/figure.png" alt="Figure">
+                            <span>Figure</span>
+                        </li>
+                        <li>
+                            <img src="img/tas.png" alt="Tas Selempang Pria">
+                            <div><b>Tas Selempang</b> <span>Wanita</span></div>
+                        </li>
+                        <li>
+                            <img src="img/flatshoes.png" alt="Flat Shoes Wanita">
+                            <div><b>Flat Shoes</b> <span>Wanita</span></div>
+                        </li>
+                    </ul>
+
+                    <ul class="category-tags">
+                        <li>Handphone & Tablet</li>
+                        <li>Top-Up & Tagihan</li>
+                        <li>Elektronik</li>
+                        <li>Perawatan Hewan</li>
+                        <li>Travel & Entertainment</li>
+                        <li>Keuangan</li>
+                        <li>Komputer & Laptop</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="trending-container">
+                <h2>Lagi trending, nih</h2>
+                <ul class="trending-list">
+                    <li>
+                        <img src="img/filterAir.jpeg" alt="Filter Air">
+                        <div class="trending-text">
+                            <strong>Filter Air</strong>
+                            <p>1jt produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/mobil.jpeg" alt="Rx 6700 Xt">
+                        <div class="trending-text">
+                            <strong>Rx 6700 Xt</strong>
+                            <p>3rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/mobil.jpeg" alt="Rx 6600 Xt">
+                        <div class="trending-text">
+                            <strong>Rx 6600 Xt</strong>
+                            <p>2rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/jashujan.jpeg" alt="Jas Hujan">
+                        <div class="trending-text">
+                            <strong>Jas Hujan</strong>
+                            <p>882rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/usb.jpeg" alt="Card Reader">
+                        <div class="trending-text">
+                            <strong>Card Reader</strong>
+                            <p>206rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/kamera.jpeg" alt="Sony A7iii">
+                        <div class="trending-text">
+                            <strong>Sony A7iii</strong>
+                            <p>15rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/sepatu.jpeg" alt="Sepatu Kanky">
+                        <div class="trending-text">
+                            <strong>Sepatu Kanky</strong>
+                            <p>5rb produk</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/ssd.jpeg" alt="Ssd 512gb">
+                        <div class="trending-text">
+                            <strong>Ssd 512gb</strong>
+                            <p>339rb produk</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <h2>Berdasarkan pencarianmu</h2>
+                <ul class="pencarian">
+                    <li>
+                        <img src="img/box.jpeg" alt="Card Wallet">
+                        <div class="desc_produk">
+                            <p class="produk">Card Wallet NIKE ICON AIR</p>
+                            <h5>Rp349.000</h5>
+                            <div class="info">
+                                <p>Kota Bekasi</p>
+                                <p>4.5 | 149 terjual</p>
+                                <p>&nbsp; </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/sepatunike.jpeg" alt="Sepatu Lari Nike Zoomx">
+                        <div class="desc_produk">
+                            <p class="produk">Sepatu Lari Nike Zoomx</p>
+                            <h5>Rp3.499.000</h5>
+                            <div class="info">
+                                <p>Kota Bandung</p>
+                                <p>4.9 | 205 terjual</p>
+                                <p>&nbsp; </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/baju.jpeg" alt="Baju Senam M.XXL EMILY">
+                        <div class="desc_produk">
+                            <p class="produk">Baju senam M.XXL EMILY</p>
+                            <h5>Rp65.000</h5>
+                            <div class="info">
+                                <p>Kota Bandung</p>
+                                <p>4.9 | 89 terjual</p>
+                                <p>&nbsp; </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/Cabai Kering.jpeg" alt="Cabe Kering Rawit">
+                        <div class="desc_produk">
+                            <p class="produk">Cabe Kering Rawit Teja</p>
+                            <h5>Rp15.000</h5>
+                            <div class="info">
+                                <p>Kota Bandung</p>
+                                <p>4.5 | 23 terjual</p>
+                                <p>&nbsp; </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/caberawit.jpeg" alt="Cabai Rawit Merah">
+                        <div class="desc_produk">
+                            <p class="produk">Cabai / cabe Rawit Merah</p>
+                            <h5>Rp12.000</h5>
+                            <div class="info">
+                                <p>Jakarta Selatan</p>
+                                <p>4.2 | 16 terjual</p>
+                                <p>&nbsp; </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tokopedia">
+                <div class="header-tokopedia">
+                    <div class="tokopedia-content">
+                        <h3>Punya Toko Online? Buka Cabangnya di Tokopedia</h3>
+                        <p class="subtitle">
+                            Mudah, nyaman, dan bebas Biaya Layanan Transaksi. <b>GRATIS!</b>
+                        </p>
+                        <div class="link-tokopedia">
+                            <button class="btn-open">Buka Toko GRATIS</button>
+                            <a href="#">Pelajari lebih lanjut</a>
+                        </div>
+                    </div>
+                    <div class="gambar-tokopedia">
+                        <img src="img/tokopedia.jpeg" alt="Tokopedia">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kalimat">
+                <div class="ketentuan">
+                    <h4>Nikmati Mudahnya Jualan Online di Tokopedia</h4>
+                    <p>
+                        Tokopedia merupakan salah satu situs jual beli online di Indonesia yang perkembangannya terhitung cepat dan memiliki tujuan untuk memudahkan setiap masyarakat di Indonesia, 
+                        agar dapat melakukan aneka transaksi jual beli secara online. 
+                        Selain kamu dapat menikmati proses pembelian aneka produk lebih mudah dan efisien, 
+                        kamu para seller juga dapat melakukan jualan online di Tokopedia. 
+                        Kamu bisa bergabung dengan komunitas khusus Tokopedia Seller bagi kamu yang ingin memulai 
+                        bisnis dan jualan online atau ingin memperluas bisnis yang sedang kamu jalankan. 
+                        Proses pendaftaran untuk menjadi Tokopedia Seller juga sangat mudah cukup dengan memasukkan data diri, 
+                        nama toko, alamat toko setelah itu kamu akan langsung terdaftar sebagai Tokopedia Seller. 
+                        Kamu juga dapat melakukan upgrade akun toko kamu menjadi Power Merchant untuk menjangkau pelanggan 
+                        Tokopedia yang lebih luas lagi, sehingga bisnis online kamu semakin laris. Keuntungan Power Merchant 
+                        adalah kamu dapat memberikan fitur Bebas Ongkir sehingga dapat menarik lebih banyak lagi pelanggan, 
+                        lalu kamu dapat menikmati fitur TopAds yang dapat menjangkau masyarakat pengguna Tokopedia lebih banyak lagi 
+                        dengan modal yang sangat minim mulai dari Rp 25 ribuan, hingga toko kamu akan tampil lebih menarik lagi serta 
+                        dapat meningkatkan kepercayaan pembeli. Ayo mulai jualan online di Tokopedia dan mulai kembangkan usahamu secara 
+                        online bersama Tokopedia.
+                    </p>
+                    <p> Tokopedia merupakan salah satu situs jual beli online di Indonesia yang perkembangannya terhitung cepat dan memiliki tujuan untuk memudahkan setiap masyarakat di Indonesia, 
+                        agar dapat melakukan aneka transaksi jual beli secara online. 
+                        Selain kamu dapat menikmati proses pembelian aneka produk lebih mudah dan efisien, 
+                        kamu para seller juga dapat melakukan jualan online di Tokopedia. 
+                        Kamu bisa bergabung dengan komunitas khusus Tokopedia Seller bagi kamu yang ingin memulai 
+                        bisnis dan jualan online atau ingin memperluas bisnis yang sedang kamu jalankan. 
+                        Proses pendaftaran untuk menjadi Tokopedia Seller juga sangat mudah cukup dengan memasukkan data diri, 
+                        nama toko, alamat toko setelah itu kamu akan langsung terdaftar sebagai Tokopedia Seller. 
+                        Kamu juga dapat melakukan upgrade akun toko kamu menjadi Power Merchant untuk menjangkau pelanggan 
+                        Tokopedia yang lebih luas lagi, sehingga bisnis online kamu semakin laris. Keuntungan Power Merchant 
+                        adalah kamu dapat memberikan fitur Bebas Ongkir sehingga dapat menarik lebih banyak lagi pelanggan, 
+                        lalu kamu dapat menikmati fitur TopAds yang dapat menjangkau masyarakat pengguna Tokopedia lebih banyak lagi 
+                        dengan modal yang sangat minim mulai dari Rp 25 ribuan, hingga toko kamu akan tampil lebih menarik lagi serta 
+                        dapat meningkatkan kepercayaan pembeli. Ayo mulai jualan online di Tokopedia dan mulai kembangkan usahamu secara 
+                        online bersama Tokopedia.
+                    </p>
+                </div>
+                
+            </div>
+        
+            <div class="features">
+                <div class="feature">
+                    <img src="img/transparan.jpg" alt="Transparan">
+                    <div class="feature-text">
+                        <h4>Transparan</h4>
+                        <p>Pembayaran Anda baru diteruskan ke penjual setelah barang Anda terima</p>
+                </div>
+                <div class="feature">
+                    <img src="img/Aman.jpg" alt="Aman">
+                    <div class="feature-text">
+                        <h4>Aman</h4>
+                        <p>Bandingkan review untuk berbagai online shop terpercaya se-Indonesia</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="img/fasilitas.jpg" alt="Escrow Gratis">
+                    <div class="feature-text">
+                        <h4>Fasilitas Escrow Gratis</h4>
+                        <p>Fasilitas Escrow (Rekening Bersama) Tokopedia tidak dikenakan biaya tambahan</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer">
+                 <div class="item">
+                    <h3>Tokopedia</h3>
+                    <p>Tentang Tokopedia</p>
+                    <p>Hak Kekayaan Intelektual</p>
+                    <p>Karir</p>
+                    <p>Blog</p>
+                    <p>Tentang Affiliate Program</p>
+                    <p>Tokopedia B2B Digital</p>
+                    <p>Tokopedia Marketing Solution</p>
+                    <p>Kalkulator Indeks Masa Tubuh</p>
+                    <p>Tokopedia Farma</p>
+                    <p>Promo Hari ini</p>
+                    <p>Beli Lokal</p>
+                    <p>Promo Guncang</p>
+                 </div>
+                 <div class="item">
+                    <h3>Beli</h3>
+                    <p>Tagihan & Top Up</p>
+                    <p>Tokopedia COD</p>
+                    <p>Bebas Ongkir</p>
+                    <h3>Jual</h3>
+                    <p>Pusat Edukasi Seller</p>
+                    <p>Daftar Mall</p>
+                    <h3>Bantuan dan Panduan</h3>
+                    <p>Tokopedia Care</p>
+                    <p>Syarat dan Ketentuan</p>
+                    <p>Kebijakan Privasi</p>
+                 </div>
+                 <div class="item">
+                    <h3>Keamanan dan Privasi</h3>
+                    <div class="gambar">
+                        <img id="img" src="img/footer1.png" alt="">
+                        <img id="img" src="img/footer2.png" alt="">
+                        <img id="img" src="img/footer2.png" alt="">
+                    </div>
+                    <h3>Ikuti Kami</h3>
+                    <div class="icon">
+                        <img id="icons" src="img/facebook.png" alt="">
+                        <img id="icons" src="img/twitter.png" alt="">
+                        <img id="icons" src="img/pinterest.png" alt="">
+                        <img id="icons" src="img/instagram.png" alt="">
+                    </div>
+                 </div>
+                 <div class="item">
+                    <img src="img/footer6.jpeg" alt="" id="gambar1">
+                    <div class="img/appstore">
+                        <img src="img/google.jpg" alt="">
+                        <img src="img/appstore.jpg" alt="">
+                        <img src="img/galery.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>   
+        
+        <script>
+            let hitung = 0;
+
+            function beli(){
+                hitung++;
+                document.getElementById("total").innerHTML = hitung;
+                total.style = 'background : green'
+            }
+        </script>
+    </body>
+</html>

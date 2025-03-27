@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    padding: 10px 20px;
+    background-color: rgb(224, 224, 224);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.menu ul li {
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+.menu ul li:first-child {
+    margin-right: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo img {
+    height: 50px; /* Sesuaikan tinggi logo */
+    width: auto; /* Menjaga aspek rasio */
+}
+
+
+.search {
+    flex-grow: 100; 
+    margin: 0 100px;
+}
+
+.search input {
+    padding: 6px 15px; 
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 12px;  
+    text-align: left;  
+    width: 400px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    /* gap: 10px;background: red; */
+    height: 100px;
+    position: relative;
+    width: 100px;
+    /* padding: 10px; */
+    gap: 10px;
+    padding: 0px;
+}
+
+.cart{
+    background: white;
+    height:15px;
+    left: 15px;
+    position: absolute;
+    top: 35px;
+    width: 15px;
+    color: white;
+    font-size: 15px;
+}
+
+.list {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    top: 50px;
+    right: 10px;
+}
+
+
+.icons img {
+    height: 24px;
+    margin-right: 20px;
+}
+
+.btn {
+    padding: 6px 15px;
+    font-size: 12px;
+    border: none;
+    border-radius: 20px;
+
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid green;
+    color: green;
+    margin-right: 10px; 
+}
+
+.btn-green {
+    background: green;
+    color: white;
+}
+
+.banner {
+    width: 95%;
+    margin: 30px auto; 
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.kategori {
+    width: 95%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
+    margin-bottom: 5px; 
+}
+
+.judul-kategori {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.letak {
+    display: flex;
+    justify-content: space-between; 
+    list-style: none;
+    padding: 0;
+}
+
+.btn-beli {
+    padding: 6px 12px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.letak li {
+    text-align: center;
+    width: 15%; 
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.letak li div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letak li b {
+    margin-bottom: 5px;
+    font-size: 14px; 
+}
+
+.letak img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 5px;
+}
+
+
+.category-tags {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    list-style: none;
+    gap: 5px;
+}
+
+.category-tags li {
+    background: transparent;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    border: 1px solid #ccc;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.trending-container {
+    width: 85%; /* Sesuaikan dengan banner */
+    max-width: 1000px; /* Samakan dengan banner */
+    margin: 0 auto; /* Tengahin */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.trending-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.trending-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trending-list li {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.trending-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.trending-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Supaya teks sejajar kiri */
+    white-space: nowrap; /* Biar teks bold gak pindah baris */
+}
+
+.trending-text strong {
+    font-size: 14px;
+    color: #333;
+    display: block; /* Biar sejajar */
+}
+
+.trending-text p {
+    font-size: 12px;
+    color: #666;
+    margin: 0; /* Hilangin margin biar lebih rapat */
+}
+
+.pencarian {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pencarian li {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pencarian li img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.pencarian li div {
+    margin-bottom: 5px;
+}
+
+.pencarian li .title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.pencarian li .price {
+    color: #d0021b;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pencarian li .location {
+    font-size: 12px;
+    color: #666;
+}
+
+.pencarian li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pencarian {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.pencarian li {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pencarian li img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.pencarian li div {
+    margin-bottom: 5px;
+}
+
+.pencarian li .title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.pencarian li .price {
+    color: #d0021b;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pencarian li .location {
+    font-size: 12px;
+    color: #666;
+}
+
+.pencarian li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.pencarian {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.pencarian li {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pencarian li img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.pencarian li div {
+    margin-bottom: 5px;
+}
+
+.pencarian li .title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.pencarian li .price {
+    color: #d0021b;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pencarian li .location {
+    font-size: 12px;
+    color: #666;
+}
+
+.pencarian li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.desc_produk{
+    text-align: left;
+}
+
+.info{
+    font-size: 10px;
+}
+
+.tokopedia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px 0; 
+    margin-top: 2px;
+}
+
+.header-tokopedia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btn-open {
+    background: #00aa5b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.link-tokopedia a {
+    color: #008c4a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.gambar-tokopedia img {
+    max-width: 300px;
+    height: auto;
+}
+
+.tokopedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header-tokopedia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+.subtitle {
+    color: grey;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.kalimat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 890px;
+    margin: 0 auto;
+    
+}
+
+h4 {
+    color: black;
+    font-size: 15px;
+    text-align: justify;
+    padding: 0 10px;
+}
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    max-width: 100em;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: justify;
+}
+
+.ketentuan {
+    font-size: 12px;
+    margin-top: 25px;
+    text-align: justify;
+    padding: 5px 5px;
+    color: gray;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+    margin-top: 10px;
+    text-align: left;
+    max-width: 880px;
+    margin-left: 70px;
+    
+}
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.feature img {
+    width: 80px;
+    flex-shrink: 0;
+}
+.feature-text {
+    flex-grow: 1;
+    text-align: justify;
+}
+.feature h4 {
+    color: #008000;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.feature p {
+    font-size: 12px;
+    color: #555;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: white;
+    padding: 30px 0px !important; 
+    font-family: Arial, sans-serif;
+}
+
+.footer .item {
+    flex: 1;
+    text-align: left; 
+}
+
+.footer h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #555;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer p:hover {
+    color: #008000;
+}
+
+.footer .icon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.footer .icon img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+
+.footer .gambar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer .gambar img {
+    width: 70px;
+    height: auto;
+}
+
+.footer .appstore {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer .appstore img {
+    width: 110px;
+    height: auto;
+    cursor: pointer;
+}
+
+#gambar1 {
+    width: 220px;
+    border-radius: 10px;
+    margin-left: 20px; 
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: white;
+    padding: 30px 60px; 
+    font-family: Arial, sans-serif;
+}
+
+.footer .item {
+    flex: 1;
+    text-align: left; 
+}
+
+.footer h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer .icon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer .icon img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.footer .gambar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer .gambar img {
+    width: 70px;
+    height: auto;
+}
+
+.footer .appstore {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer .appstore img {
+    width: 110px;
+    height: auto;
+    cursor: pointer;
+}
+
+#gambar1 {
+    width: 220px;
+    border-radius: 10px;
+    margin-left: 20px; 
+}
+
+
