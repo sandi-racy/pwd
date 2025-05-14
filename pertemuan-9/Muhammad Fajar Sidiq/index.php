@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>BArang</title>
+    <title>Barang</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,7 +70,7 @@
     <button class="tambah-btn" onclick="window.location.href='tambah.php'">Tambah Produk</button>
 
 <?php
-require 'db.php';
+require 'koneksi.php';
 $query = $db->query("SELECT * FROM barang");
 while ($p = $query->fetch()):
     $diskon = $p['harga_awal'] > 0 
