@@ -21,6 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kelas = clean_input($_POST['kelas']);
     $agama = clean_input($_POST['agama']);
     $pesan = clean_input($_POST['pesan']);
+    $umur = clean_input($_POST['umur']);
+
+    if (!is_numeric($umur) || $umur <= 0) {
+        $_SESSION['error'] = "Umur harus berupa angka yang valid.";
+        header("Location: index.php");
+        exit;
+    }
 
     if (isset($_POST['hobi']) && is_array($_POST['hobi'])) {
         $hobi_array = array_map('clean_input', $_POST['hobi']);
@@ -29,14 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hobi = "";
     }
 
-    if (empty($nama) || empty($kelas) || empty($agama) || empty($pesan)) {
+    if (empty($nama) || empty($kelas) || empty($agama) || empty($pesan) || empty($umur)) {
         $_SESSION['error'] = "Semua field wajib diisi.";
         header("Location: index.php");
         exit;
     }
 
-    $stmt = $conn->prepare("INSERT INTO form_data (nama, kelas, hobi, agama, pesan) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nama, $kelas, $hobi, $agama, $pesan);
+    $stmt = $conn->prepare("INSERT INTO form_data (nama, kelas, hobi, agama, pesan, umur) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $nama, $kelas, $hobi, $agama, $pesan, $umur);
 
     if ($stmt->execute()) {
         $_SESSION['success'] = "Data berhasil disimpan!";

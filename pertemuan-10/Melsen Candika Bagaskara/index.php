@@ -1,16 +1,17 @@
 <html>
     <head>
         <title>Validasi</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <?php
             session_start();
             if(isset($_SESSION['error'])){
-                echo $_SESSION['error'];
+                echo '<div class="error">' . $_SESSION['error'] . '</div>';
                 unset($_SESSION['error']);
-            }else if(isset($_SESSION['success'])){
-                echo $_SESSION['success'];
-                echo($_SESSION['success']);
+            } else if(isset($_SESSION['success'])){
+                echo '<div class="success">' . $_SESSION['success'] . '</div>';
+                unset($_SESSION['success']);
             }
         ?>
         <form action="submit.php" method="post">
@@ -18,6 +19,12 @@
                 <label>Nama: </label>
                 <input type="text" name="nama" required>
             </div>
+
+            <div>
+                <label>Umur: </label>
+                <input type="number" name="umur" required min="1" max="120">
+            </div>
+
 
             <div>
                 <label>Kelas: </label>
@@ -32,18 +39,17 @@
 
             <div>
                 <label>Hobi: </label>
-                <input type="checkbox" name="hobi[]" value="game">
-                <label>Game</label>
-                <input type="checkbox" name="hobi[]" value="mancing">
-                <label>Mancing</label>
-                <input type="checkbox" name="hobi[]" value="traveling">
-                <label>Traveling</label>
+                <div class="hobi-container">
+                    <label><input type="checkbox" name="hobi[]" value="game"> Game</label>
+                    <label><input type="checkbox" name="hobi[]" value="mancing"> Mancing</label>
+                    <label><input type="checkbox" name="hobi[]" value="traveling"> Traveling</label>
+                </div>
             </div>
 
             <div>
                 <label>Agama: </label>
                 <input type="radio" name="agama" value="Islam" required> Islam
-                <input type="radio" name="agama" value="Kristen"> Kristen
+                <input type="radio" name="agama" value="Katolik"> Katolik
                 <input type="radio" name="agama" value="Hindu"> Hindu
                 <input type="radio" name="agama" value="Budha"> Budha
             </div>
