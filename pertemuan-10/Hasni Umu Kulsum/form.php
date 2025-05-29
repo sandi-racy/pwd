@@ -56,15 +56,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Anda harus menyetujui syarat dan ketentuan.";
     }
 
-    // Jika tidak ada error, simpan ke database
+    // Jika tidak ada error, simpan ke database dengan PDO
     if (empty($errors)) {
-        $stmt = $conn->prepare("INSERT INTO user_form (nama, umur, gender, pekerjaan, negara, hobi, komentar, setuju) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisssssi", $nama, $umur, $gender, $pekerjaan, $negara, $hobiStr, $komentar, $setuju);
-        $stmt->execute();
-        $stmt->close();
+        try {
+            $stmt = $conn->prepare("INSERT INTO user_form (nama, umur, gender, pekerjaan, negara, hobi, komentar, setuju) 
+                VALUES (:nama, :umur, :gender, :pekerjaan, :negara, :hobi, :komentar, :setuju)");
 
-        $success = "Data berhasil disimpan!";
-        $data = compact('nama', 'umur', 'gender', 'pekerjaan', 'negara', 'hobiStr', 'komentar', 'setuju');
+            $stmt->execute([
+                ':nama' => $nama,
+                ':umur' => $umur,
+                ':gender' => $gender,
+                ':pekerjaan' => $pekerjaan,
+                ':negara' => $negara,
+                ':hobi' => $hobiStr,
+                ':komentar' => $komentar,
+                ':setuju' => $setuju
+            ]);
+
+            $success = "Data berhasil disimpan!";
+            $data = compact('nama', 'umur', 'gender', 'pekerjaan', 'negara', 'hobiStr', 'komentar', 'setuju');
+        } catch (PDOException $e) {
+            $errors[] = "Gagal menyimpan data: " . $e->getMessage();
+        }
     }
 }
 ?>
