@@ -1,72 +1,7 @@
 <?php
 session_start();
-require_once 'koneksi.php';
-
-$errors = [];
-$success = "";
-$data = [];
-
-// Handle submit
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ambil dan validasi input
-    $nama = trim($_POST['nama'] ?? '');
-    $umur = $_POST['umur'] ?? null;
-    $gender = $_POST['gender'] ?? '';
-    $pekerjaan = $_POST['pekerjaan'] ?? '';
-    $negara = $_POST['negara'] ?? '';
-    $hobi = isset($_POST['hobi']) ? $_POST['hobi'] : [];
-    $komentar = trim($_POST['komentar'] ?? '');
-    $setuju = isset($_POST['setuju']) ? 1 : 0;
-
-    // Validasi
-    if (empty($nama)) {
-        $errors[] = "Nama wajib diisi.";
-    } elseif (strlen($nama) > 100) {
-        $errors[] = "Nama tidak boleh lebih dari 100 karakter.";
-    }
-
-    if (!filter_var($umur, FILTER_VALIDATE_INT) || $umur <= 0) {
-        $errors[] = "Umur harus berupa angka positif.";
-    }
-
-    $allowedGenders = ['Laki-laki', 'Perempuan'];
-    if (!in_array($gender, $allowedGenders)) {
-        $errors[] = "Gender tidak valid.";
-    }
-
-    $allowedPekerjaan = ['Pelajar', 'Mahasiswa', 'Pekerja'];
-    if (!in_array($pekerjaan, $allowedPekerjaan)) {
-        $errors[] = "Pekerjaan tidak valid.";
-    }
-
-    if (strlen($negara) > 50) {
-        $errors[] = "Nama negara terlalu panjang.";
-    }
-
-    if (!is_array($hobi)) {
-        $errors[] = "Format hobi tidak valid.";
-    }
-    $hobiStr = implode(", ", $hobi);
-
-    if (strlen($komentar) > 500) {
-        $errors[] = "Komentar tidak boleh lebih dari 500 karakter.";
-    }
-
-    if (!$setuju) {
-        $errors[] = "Anda harus menyetujui syarat dan ketentuan.";
-    }
-
-    // Jika tidak ada error, simpan ke database
-    if (empty($errors)) {
-        $stmt = $conn->prepare("INSERT INTO user_form (nama, umur, gender, pekerjaan, negara, hobi, komentar, setuju) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisssssi", $nama, $umur, $gender, $pekerjaan, $negara, $hobiStr, $komentar, $setuju);
-        $stmt->execute();
-        $stmt->close();
-
-        $success = "Data berhasil disimpan!";
-        $data = compact('nama', 'umur', 'gender', 'pekerjaan', 'negara', 'hobiStr', 'komentar', 'setuju');
-    }
-}
+$flash = $_SESSION['flash'] ?? '';
+unset($_SESSION['flash']);
 ?>
 
 <!DOCTYPE html>
@@ -74,28 +9,93 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Form Tugas</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        table {
-            width: 100%;
-            margin-top: 30px;
-            border-collapse: collapse;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
         }
 
-        th, td {
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        form {
+            background: #ffffff;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
             padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            text-align: left;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error, .success {
+            margin: 10px auto;
+            width: 600px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
         }
 
         .error {
             color: red;
-            margin-bottom: 15px;
+            background: #ffe5e5;
+            border: 1px solid #ff8888;
         }
 
         .success {
             color: green;
-            margin-bottom: 15px;
+            background: #e8ffe5;
+            border: 1px solid #88ff99;
         }
     </style>
 </head>
@@ -103,17 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <h2>Form Input Data</h2>
 
-<?php if (!empty($errors)): ?>
-    <div class="error">
-        <?php foreach ($errors as $err): ?>
-            • <?= htmlspecialchars($err) ?><br>
-        <?php endforeach; ?>
+<?php if ($flash): ?>
+    <div class="<?= strpos($flash, 'berhasil') !== false ? 'success' : 'error' ?>">
+        <?= htmlspecialchars($flash) ?>
     </div>
-<?php elseif ($success): ?>
-    <div class="success"><?= htmlspecialchars($success) ?></div>
 <?php endif; ?>
 
-<form action="form.php" method="POST">
+<form action="proses.php" method="POST">
     <label>Nama:</label>
     <input type="text" name="nama" required>
 
@@ -121,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="number" name="umur" required>
 
     <label>Gender:</label><br>
-    <input type="radio" name="gender" value="Laki-laki"> Laki-laki
+    <input type="radio" name="gender" value="Laki-laki" required> Laki-laki
     <input type="radio" name="gender" value="Perempuan"> Perempuan<br><br>
 
     <label>Pekerjaan:</label>
@@ -151,20 +147,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <button type="submit">Submit</button>
 </form>
-
-<?php if ($success && !empty($data)): ?>
-    <h3>Data Anda:</h3>
-    <table>
-        <tr><th>Nama</th><td><?= htmlspecialchars($data['nama']) ?></td></tr>
-        <tr><th>Umur</th><td><?= $data['umur'] ?></td></tr>
-        <tr><th>Gender</th><td><?= $data['gender'] ?></td></tr>
-        <tr><th>Pekerjaan</th><td><?= $data['pekerjaan'] ?></td></tr>
-        <tr><th>Negara</th><td><?= $data['negara'] ?></td></tr>
-        <tr><th>Hobi</th><td><?= $data['hobiStr'] ?></td></tr>
-        <tr><th>Komentar</th><td><?= htmlspecialchars($data['komentar']) ?></td></tr>
-        <tr><th>Setuju</th><td><?= $data['setuju'] ? 'Ya' : 'Tidak' ?></td></tr>
-    </table>
-<?php endif; ?>
 
 </body>
 </html>
