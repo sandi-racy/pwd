@@ -6,13 +6,13 @@
     <body>
         <?php
             session_start();
-            if(isset($_SESSION['error'])){
-                echo '<div class="error">' . $_SESSION['error'] . '</div>';
-                unset($_SESSION['error']);
-            } else if(isset($_SESSION['success'])){
-                echo '<div class="success">' . $_SESSION['success'] . '</div>';
-                unset($_SESSION['success']);
-            }
+            if (isset($_SESSION['error'])) {
+            echo '<div class="error">' . htmlspecialchars($_SESSION['error']) . '</div>';
+            unset($_SESSION['error']);
+        } elseif (isset($_SESSION['success'])) {
+            echo '<div class="success">' . htmlspecialchars($_SESSION['success']) . '</div>';
+            unset($_SESSION['success']);
+        }
         ?>
         <form action="submit.php" method="post">
             <div>
